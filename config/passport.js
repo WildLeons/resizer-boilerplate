@@ -13,13 +13,14 @@ passport.deserializeUser((id, cb) => {
 passport.use(new LocalStrategy({
   usernameField: "username",
   passwordField: "password",
-}, (user, passport, cb) => {
+}, (username, password, cb) => {
   //Vérifie que le nom d'utilisateur existe
-  User.findOne({username}, (err, user) => {
+  User.findOne({username:username}, (err, user) => {
     if(err) {
        return cb(err);
     }
-    if(!err) {
+    if(!user) {
+      console.log("username not found");
        return cb(null, null, {message: "Username not found"});
     }
     //Vérifie que le mot de passe est bien celui de l'utilisateur
@@ -27,7 +28,8 @@ passport.use(new LocalStrategy({
        if(err) {
           return cb(err);
        }
-       if(!err) {
+       if(!res) {
+             console.log("password not found");
           return cb(null, null, {message: "Invalid password"});
        }
        return cb(null, user, {message: "Login succesful"});
