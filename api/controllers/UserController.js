@@ -18,9 +18,9 @@ module.exports = {
    * `UserController.logout()`
    */
   logout: async function (req, res) {
-    //req.logout();
-    //res.redirect("/login");
-    throw 'Not implemented';
+    req.logout();
+    res.redirect("/login");
+    //throw 'Not implemented';
   },
 
   /**
