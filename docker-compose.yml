@@ -9,3 +9,11 @@ services:
   command: npm run dev
   volumes:
    - ./:/usr/src/app
+ db:
+   image: mysql:5.7
+   environment:
+     - MYSQL_ROOT_PASSWORD=root
+     - MYSQL_DATABASE=resizer
+     - MYSQL_DATABASE_URL=mysql:root@mysql:3306/resizer
+   volumes:
+     - ./_docker/mysql:/var/lib/mysql
