@@ -21,7 +21,8 @@ module.exports.session = {
   secret: '80936866c73b9f0e3560f9fa1908f5cb',
 
   adapter: 'redis',
-  url: process.env.REDIS_DATABASE_URL
+  url: process.env.REDIS_DATABASE_URL,
+  cookie.secure: true
 
 
   /***************************************************************************
