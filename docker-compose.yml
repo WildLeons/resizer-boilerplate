@@ -4,6 +4,7 @@ services:
   build: .
   environment:
    - NODE_ENV=development
+   - MYSQL_DATABASE_URL=mysql:root@mysql:3306/resizer
   ports:
    - "1337:1337"
   command: npm run dev
@@ -14,6 +15,5 @@ services:
    environment:
      - MYSQL_ROOT_PASSWORD=root
      - MYSQL_DATABASE=resizer
-     - MYSQL_DATABASE_URL=mysql:root@mysql:3306/resizer
    volumes:
      - ./_docker/mysql:/var/lib/mysql
