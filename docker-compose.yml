@@ -5,7 +5,7 @@ services:
   environment:
    - NODE_ENV=development
    - MYSQL_DATABASE_URL=mysql://root:root@db:3306/resizer
-   - REDIS_DATABASE_URL=redis://root:pwd@redis:6379/resizer
+   - REDIS_DATABASE_URL=redis://redis
   ports:
    - "1337:1337"
   command: npm run dev
@@ -20,5 +20,3 @@ services:
      - ./_docker/mysql:/var/lib/mysql
  redis:
    image: redis:5.0
-   environment:
-     - REDIS_PASSWORD=pwd
